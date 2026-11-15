@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PULSE — Boutique Fitness Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#d4ff3a;--black:#0d0d0d;--grey:#1a1a1a;--line:#2a2a2a;--muted:#9a9a9a}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Archivo,system-ui,sans-serif;background:var(--black);color:#fff;line-height:1.55}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:26px 0}
+  .logo{font-weight:900;font-size:28px;letter-spacing:-.04em;display:flex;align-items:center;gap:6px}
+  .logo i{width:12px;height:12px;background:var(--lime);border-radius:50%}
+  nav ul{display:flex;gap:34px;list-style:none;font-weight:500;font-size:15px;color:#cfcfcf}
+  .btn{display:inline-block;padding:16px 30px;border-radius:999px;font-weight:800;font-size:15px;text-transform:uppercase;letter-spacing:.04em}
+  .btn-l{background:var(--lime);color:var(--black)}
+  .btn-o{border:1.5px solid #444}
+  .hero{position:relative;padding:40px 0 0}
+  .hero h1{font-size:150px;font-weight:900;line-height:.86;letter-spacing:-.055em;text-transform:uppercase}
+  .hero h1 .o{-webkit-text-stroke:2px #fff;color:transparent}
+  .hero h1 .l{color:var(--lime)}
+  .hrow{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-top:36px}
+  .hrow p{font-size:19px;color:#c4c4c4;max-width:440px}
+  .hrow .cta{display:flex;gap:12px;justify-content:flex-end}
+  .visual{margin-top:56px;height:420px;border-radius:32px;overflow:hidden;position:relative;background:radial-gradient(circle at 70% 40%,#3a3f1a,#141414 60%)}
+  .visual svg{position:absolute;inset:0;width:100%;height:100%}
+  .chip{position:absolute;background:rgba(13,13,13,.75);backdrop-filter:blur(10px);border:1px solid #333;border-radius:18px;padding:16px 20px}
+  .chip b{display:block;font-size:30px;font-weight:900;color:var(--lime);line-height:1}
+  .chip small{color:#bbb;font-size:13px}
+  .marquee{background:var(--lime);color:var(--black);font-weight:900;font-size:30px;text-transform:uppercase;letter-spacing:-.02em;padding:22px 0;margin:90px 0 0;white-space:nowrap;overflow:hidden;transform:rotate(-1.5deg)}
+  .marquee span{margin:0 26px}
+  section{padding:110px 0}
+  .sh{display:flex;justify-content:space-between;align-items:end;margin-bottom:50px}
+  .sh h2{font-size:72px;font-weight:900;letter-spacing:-.045em;line-height:.95;text-transform:uppercase}
+  .sh h2 span{color:var(--lime)}
+  .classes{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .cl{background:var(--grey);border:1px solid var(--line);border-radius:24px;padding:28px;min-height:300px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s}
+  .cl:hover{background:var(--lime);color:var(--black)}
+  .cl:hover p,.cl:hover .meta{color:#333}
+  .cl .em{font-size:44px}
+  .cl h3{font-size:30px;font-weight:900;text-transform:uppercase;letter-spacing:-.03em;margin:16px 0 8px}
+  .cl p{color:var(--muted);font-size:15px}
+  .meta{display:flex;gap:14px;color:#bbb;font-size:13px;font-weight:600;margin-top:20px}
+  .sched{background:var(--grey);border-radius:28px;padding:36px;border:1px solid var(--line)}
+  .days{display:flex;gap:10px;margin-bottom:26px}
+  .days span{padding:10px 18px;border-radius:999px;border:1px solid #333;font-weight:600;font-size:14px}
+  .days .on{background:var(--lime);color:var(--black);border-color:var(--lime)}
+  .slot{display:grid;grid-template-columns:120px 1fr 180px 140px;align-items:center;padding:20px 0;border-top:1px solid var(--line);font-size:16px}
+  .slot b{font-size:20px;font-weight:800}
+  .slot .t{color:var(--lime);font-weight:800}
+  .slot .s{color:var(--muted)}
+  .slot a{justify-self:end;padding:10px 20px;border-radius:999px;border:1.5px solid #444;font-weight:700;font-size:13px;text-transform:uppercase}
+  .slot a.full{color:#666;border-color:#2a2a2a}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .plan{border:1px solid var(--line);border-radius:28px;padding:36px;background:var(--grey)}
+  .plan.hot{background:var(--lime);color:var(--black);border-color:var(--lime)}
+  .plan h3{text-transform:uppercase;font-weight:800;font-size:16px;letter-spacing:.08em}
+  .plan .p{font-size:66px;font-weight:900;letter-spacing:-.05em;margin:14px 0}
+  .plan .p small{font-size:16px;font-weight:600;letter-spacing:0}
+  .plan ul{list-style:none;margin-bottom:30px}
+  .plan li{padding:9px 0;border-bottom:1px solid rgba(128,128,128,.25);font-size:15px}
+  .plan .btn{width:100%;text-align:center}
+  .plan.hot .btn{background:var(--black);color:var(--lime)}
+  .final{text-align:center;padding:110px 0}
+  .final h2{font-size:110px;font-weight:900;letter-spacing:-.05em;line-height:.9;text-transform:uppercase;margin-bottom:34px}
+  .final h2 span{color:var(--lime)}
+  footer{border-top:1px solid var(--line);padding:34px 0;display:flex;justify-content:space-between;color:var(--muted);font-size:14px}
+  @media(max-width:900px){.hero h1{font-size:68px}.hrow,.plans{grid-template-columns:1fr}.hrow .cta{justify-content:flex-start}.classes{grid-template-columns:1fr 1fr}.sh h2{font-size:44px}.slot{grid-template-columns:80px 1fr 100px}.slot .s{display:none}.final h2{font-size:56px}nav ul{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <a class="logo" href="#">PULSE<i></i></a>
+    <ul><li>Classes</li><li>Schedule</li><li>Coaches</li><li>Pricing</li></ul>
+    <a class="btn btn-l" href="#pricing">First class free</a>
+  </nav>
+
+  <header class="hero">
+    <h1>Train <span class="o">hard.</span><br><span class="l">Feel</span> alive.</h1>
+    <div class="hrow">
+      <p>High-energy HIIT, strength and cycling classes in small groups of 12. Expert coaches, killer playlists, real results.</p>
+      <div class="cta"><a class="btn btn-l" href="#pricing">Claim free class</a><a class="btn btn-o" href="#schedule">View schedule</a></div>
+    </div>
+    <div class="visual">
+      <svg viewBox="0 0 1200 420" preserveAspectRatio="xMidYMid slice" fill="none">
+        <circle cx="820" cy="210" r="260" stroke="#d4ff3a" stroke-opacity=".12" stroke-width="2"/>
+        <circle cx="820" cy="210" r="190" stroke="#d4ff3a" stroke-opacity=".2" stroke-width="2"/>
+        <circle cx="820" cy="210" r="120" fill="#d4ff3a" fill-opacity=".08"/>
+        <path d="M0 260 H420 L460 180 L500 330 L545 90 L590 300 L625 230 H1200" stroke="#d4ff3a" stroke-width="5" stroke-linejoin="round"/>
+        <rect x="770" y="185" width="100" height="50" rx="12" fill="#d4ff3a"/>
+        <rect x="730" y="165" width="36" height="90" rx="10" fill="#fff"/>
+        <rect x="874" y="165" width="36" height="90" rx="10" fill="#fff"/>
+        <rect x="700" y="180" width="26" height="60" rx="8" fill="#ccc"/>
+        <rect x="914" y="180" width="26" height="60" rx="8" fill="#ccc"/>
+      </svg>
+      <div class="chip" style="left:40px;top:40px"><b>650</b><small>kcal per session</small></div>
+      <div class="chip" style="right:40px;bottom:40px"><b>12</b><small>people max per class</small></div>
+      <div class="chip" style="left:40px;bottom:40px"><b>4.9★</b><small>from 850+ members</small></div>
+    </div>
+  </header>
+</div>
+
+<div class="marquee"><span>HIIT</span>✦<span>Strength</span>✦<span>Cycle</span>✦<span>Boxing</span>✦<span>Mobility</span>✦<span>HIIT</span>✦<span>Strength</span>✦<span>Cycle</span>✦<span>Boxing</span></div>
+
+<section><div class="wrap">
+  <div class="sh"><h2>Pick your<br><span>poison.</span></h2><a class="btn btn-o" href="#">All classes →</a></div>
+  <div class="classes">
+    <div class="cl"><div><div class="em">🔥</div><h3>HIIT Burn</h3><p>Intervals that torch calories and build endurance.</p></div><div class="meta"><span>45 MIN</span><span>●●● INTENSE</span></div></div>
+    <div class="cl"><div><div class="em">🏋️</div><h3>Strength</h3><p>Barbells, kettlebells and coached technique.</p></div><div class="meta"><span>50 MIN</span><span>●●○ MEDIUM</span></div></div>
+    <div class="cl"><div><div class="em">🚴</div><h3>Rhythm Cycle</h3><p>Ride to the beat under club lights.</p></div><div class="meta"><span>45 MIN</span><span>●●● INTENSE</span></div></div>
+    <div class="cl"><div><div class="em">🧘</div><h3>Mobility</h3><p>Stretch, recover and move better every day.</p></div><div class="meta"><span>40 MIN</span><span>●○○ EASY</span></div></div>
+  </div>
+</div></section>
+
+<section id="schedule" style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>This<br><span>week.</span></h2></div>
+  <div class="sched">
+    <div class="days"><span class="on">Mon 16</span><span>Tue 17</span><span>Wed 18</span><span>Thu 19</span><span>Fri 20</span><span>Sat 21</span></div>
+    <div class="slot"><span class="t">06:30</span><b>HIIT Burn</b><span class="s">Coach Alex · 4 spots</span><a href="#">Book</a></div>
+    <div class="slot"><span class="t">08:00</span><b>Strength</b><span class="s">Coach Nina · 7 spots</span><a href="#">Book</a></div>
+    <div class="slot"><span class="t">12:15</span><b>Mobility</b><span class="s">Coach Sam · 9 spots</span><a href="#">Book</a></div>
+    <div class="slot"><span class="t">18:30</span><b>Rhythm Cycle</b><span class="s">Coach Leo · Full</span><a class="full" href="#">Waitlist</a></div>
+  </div>
+</div></section>
+
+<section id="pricing" style="padding-top:0"><div class="wrap">
+  <div class="sh"><h2>Join the<br><span>pack.</span></h2></div>
+  <div class="plans">
+    <div class="plan"><h3>Drop-in</h3><div class="p">$25<small>/class</small></div><ul><li>Any single class</li><li>Towel &amp; shower included</li><li>No commitment</li></ul><a class="btn btn-o" href="#">Book a class</a></div>
+    <div class="plan hot"><h3>Unlimited</h3><div class="p">$149<small>/month</small></div><ul><li>Unlimited classes</li><li>Book 7 days ahead</li><li>Free guest pass monthly</li><li>Progress tracking app</li></ul><a class="btn" href="#">Start membership</a></div>
+    <div class="plan"><h3>10-Pack</h3><div class="p">$199<small>/10 classes</small></div><ul><li>Valid for 3 months</li><li>Share with a friend</li><li>Save $51</li></ul><a class="btn btn-o" href="#">Buy pack</a></div>
+  </div>
+</div></section>
+
+<div class="wrap">
+  <div class="final"><h2>Your first class<br>is <span>on us.</span></h2><a class="btn btn-l" href="#">Claim free class →</a></div>
+  <footer><span>© 2026 PULSE Studio · Brooklyn</span><span>Train hard. Feel alive.</span></footer>
+</div>
+<a href="https://www.upwork.com/freelancers/~011d30ba4386bdbcf8" target="_blank" rel="noopener" style="position:fixed;right:16px;bottom:16px;z-index:9999;background:#14a800;color:#fff;font:600 13px/1.2 system-ui,sans-serif;padding:10px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.3);text-decoration:none">Design concept by Ziya C. &middot; Hire me on Upwork &rarr;</a>
+</body>
+</html>
